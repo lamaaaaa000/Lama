@@ -55,8 +55,8 @@ button{
   border-radius: 14px;
 }
 
-#no {
-  transition: all 0.3s ease;
+#no{
+  position: relative;   /* مهم */
 }
 </style>
 </head>
@@ -90,9 +90,10 @@ const lines = [
 ];
 
 no.onmouseover = function(){
-  let x = Math.random() * (window.innerWidth - 100);
-  let y = Math.random() * (window.innerHeight - 50);
+  let x = Math.random() * (window.innerWidth - no.offsetWidth);
+  let y = Math.random() * (window.innerHeight - no.offsetHeight);
 
+  no.style.position = "absolute";  // مهم لجعل top/left تعمل
   no.style.left = x + "px";
   no.style.top = y + "px";
 
